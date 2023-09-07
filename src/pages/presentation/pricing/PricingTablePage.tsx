@@ -398,6 +398,15 @@ const PricingTablePage = () => {
 													if(formik.values.first_name != "" && formik.values.last_name != "" && formik.values.number != "" && formik.values.expiry != "" && formik.values.cvc != ""){
 														setSubscription(formik.values, planCode, account_id, account_code, email);
 														setModalStatus(false);
+														formik.resetForm({
+															values: {
+																first_name: '',
+																last_name: '',
+																number: '',
+																cvc: '',
+																expiry: '',
+															}
+														});
 													}
 													else{
 														showNotification('Subscription', 'Please fill in the empty fields.', 'warning');

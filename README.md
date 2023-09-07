@@ -1,58 +1,58 @@
-# MEAN Stack User Registration Front End - Angular 6
-This is a MEAN Stack Demo Project to implement User Registration with password encryption and proper validation
+# Smarty AR Platform
 
-Content Discussed :
- - Design Registration Form Using Angular 6
- - Client-Side Validation
- - Node JS API Call From Angular 6
+#### Required files (Checked ones should definitely be in your project)
+- [x] public[^1]
+- [x] src[^1]
+- [ ] SvgIcons
+- [x] .env[^1]
+- [x] .env.development[^1]
+- [x] .env.production[^1]
+- [ ] .eslintignore[^2]
+- [ ] .eslintrc[^2]
+- [ ] .gitattributes
+- [ ] .gitignore
+- [ ] .prettierignore[^3]
+- [ ] .prettierrc[^3]
+- [ ] .stylelintignore[^4]
+- [ ] .stylelintrc[^4]
+- [x] .svgrrc[^1]
+- [ ] LICENSE
+- [x] package.json[^1]
+- [ ] package-lock.json[^5]
+- [ ] README.md
+- [ ] yarn.lock[^6]
+- [x] tsconfig.json
+- [x] tsconfig.node.json
+- [x] vite.config.ts
+- [x] node_modules[^1]
 
-## Get the Code
+[^1]: These files or folders are absolutely necessary for the project to work properly.
+[^2]: You can update the ESLint settings or delete them if you don't want to use them.
+[^3]: You can update the Prettier settings or delete them if you don't want to use them.
+[^4]: You can update the Stylelint settings or delete them if you don't want to use them.
+[^5]: Required if you're using **npm**, you can delete it if you're using **yarn**.
+[^6]: Required if you're using **yarn**, you can delete it if you're using **npm**.
 
-```
-$ git clone https://github.com/CodAffection/MEAN-Stack-User-Registration-Front-End.git
-$ cd MEAN-Stack-User-Registration-Front-End/Angular6
-$ npm install
-```
+## Node
+Node version must be 16 or higher.
 
- ## How it works ?
- 
- :scroll: Article on this topic  
- Url : https://goo.gl/7w73sU
- 
- :tv: Video tutorial on this same topic  
- Url : https://goo.gl/xivk4x
- 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=V9zDNfVs7Z4
-" target="_blank"><img src="http://img.youtube.com/vi/V9zDNfVs7Z4/0.jpg" 
-alt="Video Tutorial for MEAN Stack User Registration Form in Angular 6" width="500" height="400" border="10" /></a>
+To continue changing what you see in the demo
+
+```cd facit```
 
 
-## Related MEAN Stack Tutorial in Order
-1. CRUD Operation  
-    Insert Update View and Delete : https://goo.gl/LbQ4BM
-2. User Registration <br/>
-    Node JS Back End : https://goo.gl/CMnPwe  <br/>
-    Angular 6 Front End : https://goo.gl/xivk4x [_This One_]  
-3. JWT Authentication <br/>
-    Node JS Back End  : http://bit.ly/31FKEF6  
-    Angular Front End : http://bit.ly/2z6PmQ5
+### npm
+```npm install --legacy-peer-deps```
 
+or 
 
-| :bar_chart:               |  List of Tutorials   |   | :moneybag:           | Support Us                           |
-|--------------------------:|:---------------------|---|---------------------:|:-------------------------------------|
-| Angular                   |http://bit.ly/2KQN9xF |   |Paypal                | https://goo.gl/bPcyXW                |
-| Asp.Net Core              |http://bit.ly/30fPDMg |   |Amazon   Affiliate    | https://geni.us/JDzpE                |
-| React                     |http://bit.ly/325temF |   |
-| Python                    |http://bit.ly/2ws4utg |   | :point_right:        | Follow Us                            |
-| Node.js                   |https://goo.gl/viJcFs |   |Website               |http://www.codaffection.com          |
-| Asp.Net MVC               |https://goo.gl/gvjUJ7 |   |YouTube               |https://www.youtube.com/codaffection  |
-| Flutter                   |https://bit.ly/3ggmmJz|   |Facebook              |https://www.facebook.com/codaffection |
-| Web API                   |https://goo.gl/itVayJ |   |Twitter               |https://twitter.com/CodAffection      |
-| MEAN Stack                |https://goo.gl/YJPPAH |   |
-| C# Tutorial               |https://goo.gl/s1zJxo |   |
-| Asp.Net WebForm           |https://goo.gl/GXC2aJ |   |
-| C# WinForm                |https://goo.gl/vHS9Hd |   |
-| MS SQL                    |https://goo.gl/MLYS9e |   |
-| Crystal Report            |https://goo.gl/5Vou7t |   |
-| CG Exercises in C Program |https://goo.gl/qEWJCs |   |
+### Yarn
+```yarn install```
+
+Inside the newly created project, you can run some built-in commands:
+
+### `npm run dev` or `yarn dev`
+
+Runs the app in development mode.<br>
+Open [http://127.0.0.1:5173](http://127.0.0.1:5173) to view it in the browser.
 

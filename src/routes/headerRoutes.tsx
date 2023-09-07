@@ -109,6 +109,26 @@ const headers: RouteProps[] = [
 	// 	element: <ProfilePageHeader />,
 	// },
 	{
+		path: demoPagesMenu.administration.subMenu.users.path,
+		element: <ProfilePageHeader />,
+	},
+	{
+		path: demoPagesMenu.administration.subMenu.roles.path,
+		element: <ProfilePageHeader />,
+	},
+	{
+		path: `${demoPagesMenu.administration.subMenu.roleDetail.path}/:id`,
+		element: <ProfilePageHeader />,
+	},
+	{
+		path: demoPagesMenu.administration.subMenu.departments.path,
+		element: <ProfilePageHeader />,
+	},
+	{
+		path: `${demoPagesMenu.administration.subMenu.members.path}/:id`,
+		element: <ProfilePageHeader />,
+	},
+	{
 		path: demoPagesMenu.invoicing.subMenu.pendingPayments.path,
 		element: <ProfilePageHeader />,
 	},

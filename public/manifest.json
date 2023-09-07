@@ -3,17 +3,17 @@
 	"name": "Facit Theme",
 	"icons": [
 		{
-			"src": "favicon.ico",
+			"src": "smartydreams.png",
 			"sizes": "256x256",
 			"type": "image/x-icon"
 		},
 		{
-			"src": "logo192.png",
+			"src": "smartydreams.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
 		{
-			"src": "logo512.png",
+			"src": "smartydreams.png",
 			"type": "image/png",
 			"sizes": "512x512"
 		}

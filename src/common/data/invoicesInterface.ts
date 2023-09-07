@@ -261,3 +261,97 @@ export interface ITransactions {
     action_result: string | null,
     vat_number: string | null
 }
+
+export interface ISubscriptions {
+    id: string,
+    object: string,
+    uuid: string,
+    account: IAccount,
+    billing_info_id: string | null,
+    active_invoice_id: string,
+    plan: IPlan,
+    state: string,
+    shipping: IShipping,
+    coupon_redemptions: any | null,
+    pending_change: any | null,
+    current_period_started_at: string,
+    current_period_ends_at: string,
+    current_term_started_at: string,
+    current_term_ends_at: string,
+    trial_started_at: string,
+    trial_ends_at: string,
+    remaining_billing_cycles: number,
+    total_billing_cycles: number,
+    renewal_billing_cycles: number,
+    revenue_schedule_type: string,
+    auto_renew: boolean,
+    paused_at: any | null,
+    remaining_pause_cycles: any | null,
+    currency: string,
+    tax_inclusive: any | null,
+    unit_amount: number,
+    quantity: number,
+    add_ons: [],
+    add_ons_total: number,
+    subtotal: number,
+    collection_method: string,
+    po_number: any | null,
+    net_terms: number,
+    terms_and_conditions: any | null,
+    customer_notes: any | null,
+    expiration_reason: any | null,
+    custom_fields: [],
+    bank_account_authorized_at: any | null,
+    gateway_code: any | null,
+    started_with_gift: boolean,
+    converted_at: any | null,
+    created_at: string,
+    updated_at: string,
+    activated_at: string,
+    canceled_at: any | null,
+    expires_at: any | null,
+    action_result: any | null,
+    tax: number,
+    tax_info: any | null,
+    total: number,
+    ramp_intervals: []
+}
+
+export interface IUserProfile {
+    created_at: string,
+    email: string,
+    email_verified: boolean,
+    family_name: string,
+    given_name: string,
+    identities: [],
+    locale?: string,
+    name: string,
+    nickname: string,
+    picture: string,
+    updated_at: string,
+    user_id: string,
+    user_metadata?: any,
+    last_login?: string,
+    last_ip: string,
+    logins_count: number,
+    app_metadata?: any
+}
+
+export interface IRoles {
+    id: string,
+    name: string,
+    description: string
+}
+
+export interface IUserInfo {
+	user_id: string,
+    email: string,
+    picture: string,
+    name: string
+}
+
+export interface IDepartments {
+    id: string,
+    name: string,
+    display_name: string
+}

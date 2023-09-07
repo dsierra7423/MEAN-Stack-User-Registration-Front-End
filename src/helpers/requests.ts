@@ -14,6 +14,23 @@ const headers_recurly = {
     "Content-Type": "application/json"
 };
 
+export interface editValues {
+    email?: string,
+    given_name?: string,
+    family_name?: string,
+    password?: string
+}
+
+export interface editRol {
+	name?: string,
+	description?: string
+}
+
+export interface editDepto {
+	name?: string,
+	display_name?: string
+}
+
 export const getBearerTokenAuth0 = async () => {
 	const headers = {
         'accept': 'application/json'
@@ -139,18 +156,9 @@ export const setCreditCardInfo = async(account_id: string, first_name: string, l
 }
 
 export const getInvoices = async(account_id: string) => {
-	if(account_id == null) return {"error": "No existe id del usuario"}
-
-	const token = await getBearerTokenAuth0();
-
-	const headers = {
-		...headers_auth0,
-		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
-	}
-
 	const options = {
         method: 'GET',
-        headers,
+        headers: headers_recurly,
         redirect: 'follow'
     };
 
@@ -158,16 +166,9 @@ export const getInvoices = async(account_id: string) => {
 }
 
 export const fetchInvoice = async(invoice_id: string) => {
-	const token = await getBearerTokenAuth0();
-
-	const headers = {
-		...headers_auth0,
-		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
-	}
-
 	const options = {
         method: 'GET',
-        headers,
+        headers: headers_recurly,
         redirect: 'follow'
     };
 	
@@ -175,16 +176,9 @@ export const fetchInvoice = async(invoice_id: string) => {
 }
 
 export const getTransactions = async (account_id: string) => {
-	const token = await getBearerTokenAuth0();
-
-	const headers = {
-		...headers_auth0,
-		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
-	}
-
 	const options = {
         method: 'GET',
-        headers,
+        headers: headers_recurly,
         redirect: 'follow'
     };
 
@@ -192,6 +186,37 @@ export const getTransactions = async (account_id: string) => {
 }
 
 export const fetchTransaction = async(transaction_id: string) => {
+	const options = {
+        method: 'GET',
+        headers: headers_recurly,
+        redirect: 'follow'
+    };
+
+    return await request.get(`${url_recurly}fetch_transaction?transaction_id=${transaction_id}`, options).then(res => res);
+}
+
+export const getSubscriptions = async (account_id: string) => {
+	const options = {
+        method: 'GET',
+        headers: headers_recurly,
+        redirect: 'follow'
+    };
+
+    return await request.get(`${url_recurly}list_account_subscriptions?account_id=${account_id}`, options).then(res => res);
+}
+
+export const fetchSubscription = async(subscription_id: string) => {
+	const options = {
+        method: 'GET',
+        headers: headers_recurly,
+        redirect: 'follow'
+    };
+
+	
+    return await request.get(`${url_recurly}fetch_subscription?subscription_id=${subscription_id}`, options).then(res => res);
+}
+
+export const getUsersOAuth = async () => {
 	const token = await getBearerTokenAuth0();
 
 	const headers = {
@@ -205,7 +230,360 @@ export const fetchTransaction = async(transaction_id: string) => {
         redirect: 'follow'
     };
 
-    return await request.get(`${url_recurly}fetch_transaction?transaction_id=${transaction_id}`, options).then(res => res);
+    return await request.get(`${url_auth0}users`, options).then(res => res);
+}
+
+export const createUserOAuth = async (
+	email: string,
+	given_name: string,
+	family_name: string,
+	password: string
+) => {
+	const token = await getBearerTokenAuth0();
+
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const body = {
+		"email": email,
+		"given_name": given_name,
+		"family_name": family_name,
+		"name": `${given_name} ${family_name}`,
+		"password": password,
+		"connection": "Username-Password-Authentication"
+	}
+
+	const options = {
+		method: 'POST',
+		headers,
+		body,
+		redirect: 'follow'
+	};
+
+	return await request.post(`${url_auth0}users`, options).then(res => res);
+}
+
+export const deleteUserOAuth = async (user_id: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+		method: 'DELETE',
+		headers,
+		redirect: 'follow'
+	};
+
+	return await request.del(`${url_auth0}users/${user_id}`, options).then(res => res);
+}
+
+export const updateUserOAuth = async (user_id: string, values: editValues) => {
+	const token = await getBearerTokenAuth0();
+
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+		method: 'PATCH',
+		headers,
+		body: values,
+		redirect: 'follow'
+	};
+
+	return await request.patch(`${url_auth0}users/${user_id}`, options).then(res => res);
+}
+
+export const getRolesOAuth = async() => {
+	const token = await getBearerTokenAuth0();
+
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+        method: 'GET',
+        headers,
+        redirect: 'follow'
+    };
+
+    return await request.get(`${url_auth0}roles`, options).then(res => res);
+}
+
+export const deleteRolOAuth = async (rol_id: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+		method: 'DELETE',
+		headers,
+		redirect: 'follow'
+	};
+
+	return await request.del(`${url_auth0}roles/${rol_id}`, options).then(res => res);
+}
+
+export const createRolOAuth = async(name: string, description: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const body = {
+		"name": name,
+  		"description": description
+	}
+
+	const options = {
+		method: 'POST',
+		headers,
+		body,
+		redirect: 'follow'
+	};
+
+	return await request.post(`${url_auth0}roles`, options).then(res => res);
+}
+
+export const updateRolOAuth = async(rol_id: string, values: editRol) => {
+	const token = await getBearerTokenAuth0();
+
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+		method: 'PATCH',
+		headers,
+		body: values,
+		redirect: 'follow'
+	};
+
+	return await request.patch(`${url_auth0}roles/${rol_id}`, options).then(res => res);
+}
+
+export const getUsersFromARole = async(rol_id: string) => {
+	const token = await getBearerTokenAuth0();
+
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+        method: 'GET',
+        headers,
+        redirect: 'follow'
+    };
+
+    return await request.get(`${url_auth0}roles/${rol_id}/users`, options).then(res => res);
+}
+
+export const removeRoleFromAUser = async(user_id: string, role_id: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const body = {
+		"roles": [
+			role_id
+		]
+	}
+
+	const options = {
+		method: 'DELETE',
+		headers,
+		body,
+		redirect: 'follow'
+	};
+
+	return await request.del(`${url_auth0}users/${user_id}/roles`, options).then(res => res);
+}
+
+export const assignUserToARole = async(user_id: string, role_id: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const body = {
+		"users": [
+			user_id
+		]
+	}
+
+	const options = {
+		method: 'POST',
+		headers,
+		body,
+		redirect: 'follow'
+	};
+
+	return await request.post(`${url_auth0}roles/${role_id}/users`, options).then(res => res);
+}
+
+export const getDepartmentsOAuth = async() => {
+	const token = await getBearerTokenAuth0();
+
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+        method: 'GET',
+        headers,
+        redirect: 'follow'
+    };
+
+	return await request.get(`${url_auth0}organizations`, options).then(res => res);
+}
+
+export const createDepartmentOAuth = async(name: string, display_name: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const body = {
+		"name": name,
+		"display_name": display_name,
+		"enabled_connections": [
+		  {
+			"connection_id": "con_FiuFHhsDsxfaQIeI",
+			"assign_membership_on_login": true
+		  }
+		]
+	}
+
+	const options = {
+		method: 'POST',
+		headers,
+		body,
+		redirect: 'follow'
+	};
+
+	return await request.get(`${url_auth0}organizations`, options).then(res => res);
+}
+
+export const deleteDepartmentOAuth = async(depto_id: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+		method: 'DELETE',
+		headers,
+		redirect: 'follow'
+	};
+
+	return await request.del(`${url_auth0}organizations/${depto_id}`, options).then(res => res);
+}
+
+export const updateDepartmentOAuth = async(depto_id: string, values: editDepto) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+		method: 'PATCH',
+		headers,
+		body: values,
+		redirect: 'follow'
+	};
+
+	return await request.patch(`${url_auth0}organizations/${depto_id}`, options).then(res => res);
+}
+
+export const getUsersFromDeptoOAuth = async (depto_id: string) => {
+	const token = await getBearerTokenAuth0();
+
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const options = {
+        method: 'GET',
+        headers,
+        redirect: 'follow'
+    };
+
+	return await request.get(`${url_auth0}organizations/${depto_id}/members`, options).then(res => res);
+}
+
+export const addMemberToDeptoOAuth = async(user_id: string, depto_id: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const body = {
+		"members": [
+			user_id
+		]
+	}
+
+	const options = {
+		method: 'POST',
+		headers,
+		body,
+		redirect: 'follow'
+	};
+
+	return await request.post(`${url_auth0}organizations/${depto_id}/members`, options).then(res => res);
+}
+
+export const removeUserFromDeptoOAuth = async(user_id: string, depto_id: string) => {
+	const token = await getBearerTokenAuth0();
+	
+	const headers = {
+		...headers_auth0,
+		"Authorization": !token.err ? `${token.data.token_type} ${token.data.access_token}` : ''
+	}
+
+	const body = {
+		"members": [
+			user_id
+		]
+	}
+
+	const options = {
+		method: 'DELETE',
+		headers,
+		body,
+		redirect: 'follow'
+	};
+
+	return await request.del(`${url_auth0}organizations/${depto_id}/members`, options).then(res => res);
 }
 
 //-----------------------------------------------------------------------------------------------------------------------

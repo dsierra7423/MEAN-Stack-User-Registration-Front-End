@@ -400,6 +400,44 @@ export const demoPagesMenu = {
 			},
 		},
 	},
+	administration: {
+		id: 'administration',
+		text: 'Administration',
+		path: 'administration',
+		icon: 'AdminPanelSettings',
+		subMenu: {
+			users: {
+				id: 'users',
+				text: 'Users',
+				path: 'administration/users',
+				icon: 'Person',
+			},
+			roles: {
+				id: 'roles',
+				text: 'Roles',
+				path: 'administration/roles',
+				icon: 'Groups',
+			},
+			roleDetail: {
+				id: 'roleDetail',
+				text: 'Role Detail',
+				path: 'administration/roles/role-detail',
+				hide: true,
+			},
+			departments: {
+				id: 'departments',
+				text: 'Departments',
+				path: 'administration/departments',
+				icon: 'Business',
+			},
+			members: {
+				id: 'members',
+				text: 'Members',
+				path: 'administration/departments/members',
+				hide: true,
+			},
+		}
+	},
 	invoicing: {
 		id: 'invoicing',
 		text: 'Invoicing',

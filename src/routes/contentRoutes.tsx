@@ -76,6 +76,13 @@ const APP = {
 		WITH_LIST: lazy(() => import('../pages/presentation/chat/WithListChatPage')),
 		ONLY_LIST: lazy(() => import('../pages/presentation/chat/OnlyListChatPage')),
 	},
+	ADMINISTRATION: {
+		USERS: lazy(() => import('../pages/presentation/administration/users/Users')),
+		ROLES: lazy(() => import('../pages/presentation/administration/roles/Roles')),
+		ROLE_DETAILS: lazy(() => import('../pages/presentation/administration/roles/RoleDetail')),
+		DEPARTMENTS: lazy(() => import('../pages/presentation/administration/departments/Departments')),
+		MEMBERS: lazy(() => import('../pages/presentation/administration/departments/DepartmentMembers'))
+	},
 	INVOICING: {
 		// BILLING_INFO: lazy(() => import('../pages/presentation/invoicing/BillingInfo')),
 		PENDING_PAYMENTS: lazy(() => import('../pages/presentation/invoicing/PendingPayments')),
@@ -84,7 +91,7 @@ const APP = {
 		TRANSACTIONS_DETAIL: lazy(() => import('../pages/presentation/invoicing/TransactionsDetail')),
 	},
 	SUBSCRIPTION: {
-		//SUBSCRIPTIONS: lazy(() => import('../pages/presentation/subscriptions/Subscriptions'))
+		SUBSCRIPTIONS: lazy(() => import('../pages/presentation/subscriptions/Subscriptions'))
 	}
 };
 const PAGE_LAYOUTS = {
@@ -413,6 +420,30 @@ const presentation: RouteProps[] = [
 	},
 
 	/**
+	 * App > Administration
+	 */
+	{
+		path: demoPagesMenu.administration.subMenu.users.path,
+		element: <APP.ADMINISTRATION.USERS />,
+	},
+	{
+		path: demoPagesMenu.administration.subMenu.roles.path,
+		element: <APP.ADMINISTRATION.ROLES />,
+	},
+	{
+		path: `${demoPagesMenu.administration.subMenu.roleDetail.path}/:id`,
+		element: <APP.ADMINISTRATION.ROLE_DETAILS />,
+	},
+	{
+		path: demoPagesMenu.administration.subMenu.departments.path,
+		element: <APP.ADMINISTRATION.DEPARTMENTS />,
+	},
+	{
+		path: `${demoPagesMenu.administration.subMenu.members.path}/:id`,
+		element: <APP.ADMINISTRATION.MEMBERS />,
+	},
+
+	/**
 	 * App > Invoicing
 	 */
 	// {
@@ -441,7 +472,7 @@ const presentation: RouteProps[] = [
 	 */
 	{
 		path: demoPagesMenu.invoicing.subMenu.subscriptions.path,
-		//element: <APP.SUBSCRIPTION.SUBSCRIPTIONS />,
+		element: <APP.SUBSCRIPTION.SUBSCRIPTIONS />,
 	},
 
 	/**
