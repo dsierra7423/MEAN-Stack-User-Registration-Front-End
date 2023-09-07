@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo Logging in to Amazon ECR...
-      - docker login --username paassmarty --password ZAqazwsxedc$1
+      - docker login -u paas@smartydreams.com -p dckr_pat_m4tCW2bs8AdTo_3m4vWvwPwBCoo
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com 
   build:
     commands:
