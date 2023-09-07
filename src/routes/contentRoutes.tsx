@@ -84,7 +84,7 @@ const APP = {
 		TRANSACTIONS_DETAIL: lazy(() => import('../pages/presentation/invoicing/TransactionsDetail')),
 	},
 	SUBSCRIPTION: {
-		SUBSCRIPTIONS: lazy(() => import('../pages/presentation/subscriptions/Subscriptions'))
+		//SUBSCRIPTIONS: lazy(() => import('../pages/presentation/subscriptions/Subscriptions'))
 	}
 };
 const PAGE_LAYOUTS = {
@@ -441,7 +441,7 @@ const presentation: RouteProps[] = [
 	 */
 	{
 		path: demoPagesMenu.invoicing.subMenu.subscriptions.path,
-		element: <APP.SUBSCRIPTION.SUBSCRIPTIONS />,
+		//element: <APP.SUBSCRIPTION.SUBSCRIPTIONS />,
 	},
 
 	/**
