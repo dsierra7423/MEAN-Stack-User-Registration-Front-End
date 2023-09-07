@@ -1,0 +1,21 @@
+{
+    "Date of issue" : "Datum der Ausstellung",
+	"ID" : "AUSWEIS",
+	"Type" : "Typ",
+	"Due Date" : "Geburtstermin",
+	"State" : "Zustand",
+	"Foreign Exchange" : "Austauschjahr",
+	"Invoice Amount" : "Rechnungsbetrag",
+	"Balance Due" : "Restbetrag fällig",
+	"Billing Period" : "Abrechnungszeitraum",
+    "Transaction Date" : "Transaktionsdatum",
+	"Invoice ID" : "Rechnungs-ID",
+	"Payment Method" : "Bezahlverfahren",
+	"Amount" : "Menge",
+	"Search pending payments...": "Suchen Sie nach ausstehenden Zahlungen...",
+	"Search transactions...": "Suchen Sie nach Transaktionen...",
+	"Download": "Herunterladen",
+	"Stop payment": "Zahlung einstellen",
+	"Complete the payment": "Schließen Sie die Zahlung ab",
+	"Print": "Drucken"
+}

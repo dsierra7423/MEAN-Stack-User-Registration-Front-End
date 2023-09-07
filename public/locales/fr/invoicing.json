@@ -1,0 +1,21 @@
+{
+    "Date of issue" : "Date d'émission",
+	"ID" : "IDENTIFIANT",
+	"Type" : "Taper",
+	"Due Date" : "Date d'échéance",
+	"State" : "État",
+	"Foreign Exchange" : "Change",
+	"Invoice Amount" : "Montant de la facture",
+	"Balance Due" : "Solde dû",
+	"Billing Period" : "Période de facturation",
+    "Transaction Date" : "Date de la transaction",
+	"Invoice ID" : "Numéro de facture",
+	"Payment Method" : "Mode de paiement",
+	"Amount" : "la somme",
+	"Search pending payments...": "Rechercher des paiements en attente...",
+	"Search transactions...": "Rechercher des opérations...",
+	"Download": "Télécharger",
+	"Stop payment": "Arrêtez de payer",
+	"Complete the payment": "Terminez le paiement",
+	"Print": "Imprimer"
+}

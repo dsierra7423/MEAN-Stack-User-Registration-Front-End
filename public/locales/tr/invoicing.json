@@ -1,0 +1,21 @@
+{
+    "Date of issue" : "Veriliş tarihi",
+	"ID" : "İD",
+	"Type" : "Tip",
+	"Due Date" : "Bitiş tarihi",
+	"State" : "Durum",
+	"Foreign Exchange" : "Döviz",
+	"Invoice Amount" : "Fatura tutarı",
+	"Balance Due" : "vadesi gelmiş borç",
+	"Billing Period" : "Fatura donemi",
+    "Transaction Date" : "İşlem Tarihi",
+	"Invoice ID" : "fatura kimliği",
+	"Payment Method" : "Ödeme yöntemi",
+	"Amount" : "Miktar",
+	"Search pending payments...": "Bekleyen ödemeleri ara...",
+	"Search transactions...": "Arama işlemleri",
+	"Download": "İndirmek",
+	"Stop payment": "Ödemeyi durdur",
+	"Complete the payment": "ödemeyi tamamla",
+	"Print": "Yazdır"
+}

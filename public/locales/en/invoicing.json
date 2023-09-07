@@ -1,0 +1,21 @@
+{
+    "Date of issue" : "Date of issu",
+	"ID" : "ID",
+	"Type" : "Type",
+	"Due Date" : "Due Date",
+	"State" : "State",
+	"Foreign Exchange" : "Foreign Exchange",
+	"Invoice Amount" : "Invoice Amount",
+	"Balance Due" : "Balance Due",
+	"Billing Period" : "Billing Period",
+    "Transaction Date" : "Transaction Date",
+	"Invoice ID" : "Invoice ID",
+	"Payment Method" : "Payment Method",
+	"Amount" : "Amount",
+	"Search pending payments...": "Search pending payments...",
+	"Search transactions...": "Search transactions...",
+	"Download": "Download",
+	"Stop payment": "Stop payment",
+	"Complete the payment": "Complete the payment",
+	"Print": "Print"
+}
